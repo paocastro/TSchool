@@ -1,1 +1,503 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+
+.div-table {
+    display: table;
+    width: 100%;
+    border-spacing: 5px; /* cellspacing:poor IE support for  this */
+    font-family: Arial;
+}
+
+.div-table50 { 
+    display: table;
+    width: 50%;
+    border-spacing: 5px; /* cellspacing:poor IE support for  this */
+    font-family: Arial;
+}
+
+.div-table50-100 { 
+    display: table;
+    width: 50%;
+    border-spacing: 5px; /* cellspacing:poor IE support for  this */
+    font-family: Arial;
+}
+
+.div-table-row {
+    display: table-row;
+    width: 100%;
+    clear: both;
+}
+
+.div-table-col100 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 100%;
+}
+.div-table-col90 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 90%;
+}
+.div-table-col95 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 90%;
+}
+
+.div-table-col80 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 80%;
+}
+
+.div-table-col85 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 85%;
+}
+.div-table-col75 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 75%;
+}
+.div-table-col70 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 70%;
+}
+
+.div-table-col55 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 55%;
+}
+
+.div-table-col66 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 66%;
+}
+.div-table-col60 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 60%;
+}
+
+.div-table-col50-100 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 50%;
+}
+
+.div-table-col50 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 50%;
+}
+
+.div-table-col50R {
+    float: right; /* fix for  buggy browsers */
+    display: table-column;
+    width: 50%;
+}
+
+.div-table-col50Right {
+    float: right; /* fix for  buggy browsers */
+    display: table-column;
+    width: 50%;
+}
+
+.div-table-col25R {
+    float: right; /* fix for  buggy browsers */
+    display: table-column;
+    width: 25%;
+}
+.div-table-col40 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 40%;
+}
+
+.div-table-col40-100 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 40%;
+}
+
+.div-table-col15-100 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 15%;
+}
+
+.div-table-col70-100 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 70%;
+}
+
+.div-table-col45 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 45%;
+}
+.div-table-col30 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 30%;
+}
+
+.div-table-col25 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 25%;
+}
+
+.div-table-col25-100 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 25%;
+}
+
+.div-table-col30-100 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 30%;
+}
+
+.div-table-col35 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 35%;
+}
+
+.div-table-col33 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 33%;
+}
+
+.div-table-col20 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 20%;
+    
+}
+
+.div-table-col20-100 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 20%;
+    
+}
+
+.div-table-col15 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 15%;
+    
+}
+
+.div-table-col10 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 10%;
+    
+}
+
+.div-table-col9 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 9%;
+    
+}
+
+.div-table-col16 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 10%;
+}
+
+.div-table-col5 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 5%;    
+}
+
+.div-table-col3 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 3%;    
+}
+
+.div-table-col2 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 2%;    
+}
+
+/*Responsive*/
+.div-table-col55-0 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 55%;
+}
+/*Responsive*/
+.div-table-col45-100 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 45%;
+}
+
+.field-error {
+    color: red;
+    font-size: 9px;
+}
+
+.fullwidth{
+    width: 100%;
+}
+
+.cCargando {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: fixed;
+    background-color: #000;
+    opacity: 0.8;
+    filter: alpha(opacity=80); /* Internet Explorer 8*/
+    z-index: 9999;
+    transition: width 2s;
+    -moz-transition: width 2s; /* Firefox 4 */
+    -webkit-transition: width 2s; /* Safari and Chrome */
+    -o-transition: width 2s; /* Opera */
+    cursor: progress;
+}
+
+.cCargandoImg {
+    cursor: progress;
+    position: absolute;
+    top: 32%;
+    right: 45%;
+    left: 35%;
+    filter: alpha(opacity=80); /* Internet Explorer 8*/
+    opacity: 0.8;
+    margin: auto;
+    width: 350px;
+    text-align: center;
+    height: 150px;
+    padding: 10px;
+    background-color: #000;
+    /*border: 1px solid #000;*/
+    color: #ffffff;
+    font-size: 2em;
+
+}
+
+
+.button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: blue;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 15px;
+    padding: 10px;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+
+  
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  .content-card {
+    max-width: 700px;
+    margin: auto;
+}
+
+.mat-column-numeric {
+    text-align: right;  
+  }
+
+.Columnwidth5{
+    flex: 0 0 5px;
+}
+.fijada{
+    position: fixed;
+    z-index: 999999;
+    top:50%;
+    left:50%;
+    width: 900px;
+}
+
+.numTel{
+    color: blue;
+    font: italic;
+    text-decoration: underline;
+}
+
+.mat-input-element{
+    height: 29px;
+}
+
+.prefixInput{
+    position: relative;
+    bottom: 6px;
+}
+.customWidthClass{
+    flex: 0 0 75px;
+ }
+
+ .datePickAlignMatInput{
+    top: 15px;
+    position: relative;
+ }
+
+ .div-table-col55-100 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 55%;
+}
+  
+@media 
+only screen and (max-width: 656px),
+(max-device-width: 656px) {
+    
+.div-table-col15-100 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 100%;
+}
+
+    
+.div-table-col70-100 {
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+    width: 100%;
+}
+
+    .datePickAlignMatInput{
+        top: 0px;
+        position: relative;
+     }
+
+     .div-table-col50-100 {
+        float: left; /* fix for  buggy browsers */
+        display: table-column;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+
+     .div-table-col55-100 {
+        float: left; /* fix for  buggy browsers */
+        display: table-column;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+
+     .div-table-col30-100 {
+        float: left; /* fix for  buggy browsers */
+        display: table-column;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+
+     .div-table-col25-100 {
+        float: left; /* fix for  buggy browsers */
+        display: table-column;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+
+     .div-table-col40-100 {
+        float: left; /* fix for  buggy browsers */
+        display: table-column;
+        width: 100%;
+    }
+     .div-table-col60 {
+        float: left; /* fix for  buggy browsers */
+        display: table-column;
+        width: 100%;
+    }
+
+
+
+    .div-table-col5{
+        float: left; /* fix for  buggy browsers */
+        display: table-column;
+        width: 0%;
+    }
+    .div-table-col33{
+        float: left; /* fix for  buggy browsers */
+        display: table-column;
+        width: 100%;
+    }
+    .div-table-col55-0 {
+        float: left; /* fix for  buggy browsers */
+        display: none;
+        width: 0%;
+    }
+
+    .div-table-col45-100 {
+        float: left; /* fix for  buggy browsers */
+        display: table-column;
+        width: 100%;
+        align-content:center;
+    }
+
+    .div-table-col20-100 {
+        float: left; /* fix for  buggy browsers */
+        display: table-column;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .div-table-col75 {
+        float: left; /* fix for  buggy browsers */
+        display: table-column;
+        width: 100%;
+    }
+    
+
+}

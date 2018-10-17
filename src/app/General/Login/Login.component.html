@@ -1,0 +1,45 @@
+<div class="firstDiv">
+    <p-card  styleClass="ui-card-shadow">
+      <div style="text-align: center">
+          <img  width="200px" height="150px"   src="../../../assets/Imagenes/logo.png">
+      </div>
+      <div class="ui-card-title" style="text-align: center">Bienvenido</div>
+      <div class="container ui-card-content" style="width: 100%">
+        <div class="row">
+          <div class="col-12">
+            <span class="ui-float-label" style="margin-top: 20px">
+              <input id="user" [(ngModel)]="user" required type="text" pInputText class="input">
+              <label for="user">Username</label>
+            </span>
+          </div>
+          <div class="col-12">
+            <span class="ui-float-label" style="margin-top: 20px;width: 100%">
+              <input id="pass" [(ngModel)]="pass" required type="password" class="input" pInputText>
+              <label for="pass">Password</label>
+            </span>
+          </div>
+          <div class="col-12">
+            <div style="text-align: center">
+              <button pButton (click)="ingresar()" type="button" label="Login" icon="pi pi-check" style="margin-right: .25em;  margin-top: 15%"></button>
+            </div>
+          </div>
+          <div class="col-12"></div>
+          <div class="col-12 ui-card-footer">
+            <div style="text-align: center">
+              <a [routerLink]="['/ResetPass/' + idkatios]" style="font-size: 10px">¿Olvidaste tu contraseña?</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </p-card>
+  </div>
+  
+  
+  
+  <div *ngIf="enProceso" id="divProceso" class="cCargando">
+      <div id="divProcesoMsg" class="cCargandoImg">
+          <br />
+          <fa style="font-size: 50px" name="cog" animation="spin"></fa>
+          <br />
+      </div>
+  </div>
