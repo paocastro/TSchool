@@ -1,4 +1,4 @@
-export class Estudiante{
+export class Contacto{
     public IdColegio:string;
     public IdPersona:string;
     public IdContacto:Number;

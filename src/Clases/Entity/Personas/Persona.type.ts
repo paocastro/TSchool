@@ -1,3 +1,5 @@
+import { Contacto } from "./Contacto.type";
+
 export class Persona{
 
     public IdColegio:string;
@@ -12,5 +14,7 @@ export class Persona{
     public RH:string;
     public EPS:string;
     public Tipo:string;
+
+    public listContacts = Array<Contacto>();
 
 }
