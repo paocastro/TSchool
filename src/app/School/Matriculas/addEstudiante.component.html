@@ -1,1 +1,33 @@
-hola
+<div class="div-table">
+    <div class="div-table-principal" style="text-align: center">
+        <div class="Encabezado!important" style="width: 100%!important">
+            <div class="ui-card-title" style="width: 100%!important;text-align: center;background: #494C54;color: white">
+                <fa name="user-plus"></fa> Adicionar Estudiante
+            </div>
+        </div>
+        <div class="GrupoConceptos">
+            <div class="div-table-row">
+                Datos del estudiante
+            </div>
+            <div class="div-table-row" style="width: 100%;border-spacing:0px!important">
+                <p-dropdown [style]="{'width':'100%','Height':'20px'}" [autoWidth]="false" [options]="cursos" [(ngModel)]="selectedCity1" [filter]="true"></p-dropdown>
+            </div>
+            <div class="div-table-row">
+                <div class="ui-inputgroup" style="text-align: center">
+                    <span class="ui-inputgroup-addon" style="width: 10%!important">
+                        <i class="fa fa-user" style="font-size: 20px;"></i>
+                    </span>
+                    <input pInputText type="text" style="width: 90%!important" placeholder="Nombres" [(ngModel)]="concepto" required>
+                </div>
+            </div>
+            <div class="div-table-row">
+                <div class="ui-inputgroup" style="text-align: center">
+                    <span class="ui-inputgroup-addon" style="width: 10%!important">
+                        <i class="fa fa-user" style="font-size: 20px;"></i>
+                    </span>
+                    <input pInputText type="text" style="width: 90%!important" placeholder="Apellidos" [(ngModel)]="concepto" required>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -9,11 +9,15 @@ import { FormsModule } from '@angular/forms';
 import {ButtonModule} from 'primeng/button';
 import {ScrollPanelModule} from 'primeng/scrollpanel';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {InputTextModule} from 'primeng/inputtext';
+import {DropdownModule} from 'primeng/dropdown';
+
 import { Login } from './General/Login/Login.component';
 import { EncabezadoComponent } from './General/Encabezado/Encabezado.component';
 import { Tablero1Component } from './TablerosControl/Tablero1/Tablero1.component';
 import { AppMenuComponent, AppSubMenuComponent } from './General/app-menu.component';
 import { addEstudianteComponent } from './School/Matriculas/addEstudiante.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +29,8 @@ import { addEstudianteComponent } from './School/Matriculas/addEstudiante.compon
     AppRoutingModule,
     CardModule,
     AngularFontAwesomeModule,FormsModule,ButtonModule,
-    ScrollPanelModule,BrowserAnimationsModule
+    ScrollPanelModule,BrowserAnimationsModule,
+    InputTextModule,DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]
