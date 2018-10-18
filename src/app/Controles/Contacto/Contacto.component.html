@@ -1,0 +1,60 @@
+<div class="div-table">
+    <div class="div-table-row" style="text-align: right;">
+        <div class="div-table-col50">
+            <h4>{{Tipo}}</h4>
+        </div>
+
+        <div class="div-table-col50" style="text-align: right;">
+            <li placement="bottom" ngbTooltip="adicionar dirección" style="display:inline;list-style-type:none;">
+                <fa style="font-size: 15px;color: blue" name="plus" (click)="openDialog(content)"></fa>
+            </li>
+        </div>
+    </div>
+    <div class="div-table-row" >
+            <p-table [value]="oLista">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Descripción</th>
+                            <th>Valor</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-contacto>
+                        <tr>
+                            <td>{{contacto.Descripcion}}</td>
+                            <td>{{contacto.Valor}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+    </div>
+</div>
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="div-table">
+        <div class="div-table-row" style="text-align:center">
+            <h4>Adicionar {{Tipo}}</h4>
+        </div>
+        <div class="div-table-row">
+            <div class="ui-inputgroup" style="text-align: center">
+                <!-- <span class="ui-inputgroup-addon" style="width: 10%!important">
+                            <i class="fa fa-id-file-alt" style="font-size: 20px;"></i>
+                        </span> -->
+                <input pInputText type="text" style="width: 90%!important" placeholder="Descripción" [(ngModel)]="oContacto.Descripcion"
+                    required>
+            </div>
+        </div>
+        <div class="div-table-row">
+            <div class="ui-inputgroup" style="text-align: center">
+                <!-- <span class="ui-inputgroup-addon" style="width: 10%!important">
+                            <i class="fa fa-id-info" style="font-size: 20px;"></i>
+                        </span> -->
+                <input pInputText type="text" style="width: 90%!important" placeholder="Valor" [(ngModel)]="oContacto.Valor"
+                    required>
+            </div>
+        </div>
+        <div class="div-table-row" style="text-align:center">
+                <button pButton (click)="guardar()" type="button" label="Guardar" icon="pi pi-check" ></button>
+        </div>
+    </div>
+
+</ng-template>

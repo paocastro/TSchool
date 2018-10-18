@@ -7,17 +7,19 @@
         </div>
         <div class="GrupoConceptos">
             <div class="div-table-row">
-                Datos del estudiante
+                <h4>Datos del estudiante</h4>
             </div>
             <div class="div-table-row" style="width: 100%;border-spacing:0px!important">
-                <p-dropdown [style]="{'width':'100%','Height':'20px'}" [autoWidth]="false" [options]="cursos" [(ngModel)]="selectedCity1" [filter]="true"></p-dropdown>
+                <p-dropdown [style]="{'width':'100%','Height':'20px'}" [autoWidth]="false" [options]="cursos"
+                    [(ngModel)]="selectedCity1" [filter]="true"></p-dropdown>
             </div>
             <div class="div-table-row">
                 <div class="ui-inputgroup" style="text-align: center">
                     <span class="ui-inputgroup-addon" style="width: 10%!important">
                         <i class="fa fa-user" style="font-size: 20px;"></i>
                     </span>
-                    <input pInputText type="text" style="width: 90%!important" placeholder="Nombres" [(ngModel)]="concepto" required>
+                    <input pInputText type="text" style="width: 90%!important" placeholder="Nombres" [(ngModel)]="concepto"
+                        required>
                 </div>
             </div>
             <div class="div-table-row">
@@ -25,9 +27,80 @@
                     <span class="ui-inputgroup-addon" style="width: 10%!important">
                         <i class="fa fa-user" style="font-size: 20px;"></i>
                     </span>
-                    <input pInputText type="text" style="width: 90%!important" placeholder="Apellidos" [(ngModel)]="concepto" required>
+                    <input pInputText type="text" style="width: 90%!important" placeholder="Apellidos" [(ngModel)]="concepto"
+                        required>
+                </div>
+            </div>
+            <div class="div-table-row">
+                <div class="div-table-col45-100">
+                    <div class="ui-inputgroup" style="text-align: center">
+                        <span class="ui-inputgroup-addon" style="width: 10%!important">
+                            <i class="fa fa-users" style="font-size: 20px;"></i>
+                        </span>
+                        <input pInputText type="numeric" style="width: 90%!important" placeholder="Número de hermanos"
+                            [(ngModel)]="concepto" required>
+                    </div>
+                </div>
+                <div class="div-table-col5">
+                    &#160;
+                </div>
+                <div class="div-table-col50-100">
+                    <div class="ui-inputgroup" style="text-align: center">
+                        <span class="ui-inputgroup-addon" style="width: 10%!important">
+                            <i class="fa fa-map" style="font-size: 20px;"></i>
+                        </span>
+                        <input pInputText type="text" style="width: 90%!important" placeholder="Lugar de nacimiento"
+                            [(ngModel)]="concepto" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="div-table-row">
+                <div class="div-table-col30-100" style="text-align:left">
+                    <h6>Fecha de nacimiento</h6>
+                </div>
+                <div class="div-table-col60" style="text-align:center">
+                    <app-date-picker #datepicker (selectedDate)="selectedDate($event)"></app-date-picker>
+                </div>
+
+            </div>
+
+            <div class="div-table-row">
+                <div class="div-table-col45-100" style="border-spacing:0px!important">
+                    <p-dropdown [style]="{'width':'100%','Height':'20px'}" [autoWidth]="false" [options]="tDocumentos"
+                        [(ngModel)]="selectedCity1" [filter]="true"></p-dropdown>
+                </div>
+                <div class="div-table-col5">
+                    &#160;
+                </div>
+                <div class="div-table-col50-100">
+                    <div class="ui-inputgroup" style="text-align: center">
+                        <span class="ui-inputgroup-addon" style="width: 10%!important">
+                            <i class="fa fa-id-card" style="font-size: 20px;"></i>
+                        </span>
+                        <input pInputText type="text" style="width: 90%!important" placeholder="Número de documento"
+                            [(ngModel)]="concepto" required>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="GrupoConceptos">
+            <div class="div-table-row">
+                <contacto [oLista]="oListaDirecciones" (agregoContacto)="eventAgregoContacto($event)" [Tipo]="'Direcciones'"></contacto>
+            </div>
+        </div>
+
+        <div class="GrupoConceptos">
+            <div class="div-table-row">
+                <contacto [oLista]="oListaTelefonos" (agregoContacto)="eventAgregoContacto($event)" [Tipo]="'Telefonos'"></contacto>
+            </div>
+        </div>
+
+        <div class="GrupoConceptos">
+            <div class="div-table-row">
+                <contacto  [oLista]="oListaEmail" (agregoContacto)="eventAgregoContacto($event)" [Tipo]="'Email'"></contacto>
+            </div>
+        </div>
+
     </div>
 </div>

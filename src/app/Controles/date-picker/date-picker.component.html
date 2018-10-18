@@ -1,0 +1,9 @@
+<div class="date-Col-Margin" style="border-spacing:0px!important">
+    <p-dropdown [options]="jYear.Years" (onChange)="selectYearEvent()" [(ngModel)]="selectedYear" optionLabel="year" placeholder="Año*" [showClear]="true"></p-dropdown>
+</div>     
+<div class="date-Col-Margin" style="border-spacing:0px!important">
+    <p-dropdown [options]="months" (onChange)="selectMonthEvent()" [(ngModel)]="selectedMonth" [disabled]="!bSelectedYear" optionLabel="name" placeholder="Mes*" [showClear]="true"></p-dropdown>
+</div>     
+<div class="date-Col-Margin" style="border-spacing:0px!important">
+    <p-dropdown [options]="jDay.Days" (onChange)="selectDayEvent()" [(ngModel)]="selectedDay"[disabled]="!bSelectedMonth"  optionLabel="day" placeholder="Día*" [showClear]="true"></p-dropdown>
+</div>  

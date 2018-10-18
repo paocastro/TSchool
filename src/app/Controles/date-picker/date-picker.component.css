@@ -1,0 +1,21 @@
+
+  .date-Col-Margin{
+    margin-right:10px;
+    
+    float: left; /* fix for  buggy browsers */
+    display: table-column;
+  }
+
+
+  @media 
+  only screen and (max-width: 656px),
+  (max-device-width: 656px) {
+	
+    .date-Col-Margin{
+        margin-right:5px;
+        float: left; /* fix for  buggy browsers */
+        display: table-column;
+      }
+    
+
+  }
