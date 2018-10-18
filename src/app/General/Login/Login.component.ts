@@ -35,7 +35,8 @@ export class Login  {
       this.oLoginService.Login(this.idColegio, this.user,this.oPouchPerson, this.pass).then(resp =>{
         console.log(resp);
         if(resp){
-          this.router.navigate(['ADM/Tablero1'])
+          localStorage.setItem("usuario",this.user)
+          this.router.navigate(['ADM/addEstudiante'])
         }else{
           alert("Informacion ingresada incorrecta");    
         }

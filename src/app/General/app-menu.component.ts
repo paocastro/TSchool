@@ -19,7 +19,7 @@ export class AppMenuComponent implements OnInit {
 
     ngOnInit() {
         this.model = [
-            {label: 'Home', icon: 'fa fa-fw fa-home', routerLink: 'ADM/Tablero1'},
+            // {label: 'Home', icon: 'fa fa-fw fa-home', routerLink: 'ADM/Tablero1'},
             {label: 'Matricular', icon: 'fa fa-fw fa-plus', routerLink: 'ADM/addEstudiante'},
         ];
     }

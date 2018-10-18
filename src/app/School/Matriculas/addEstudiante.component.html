@@ -11,14 +11,14 @@
             </div>
             <div class="div-table-row" style="width: 100%;border-spacing:0px!important">
                 <p-dropdown [style]="{'width':'100%','Height':'20px'}" [autoWidth]="false" [options]="cursos"
-                    [(ngModel)]="selectedCity1" [filter]="true"></p-dropdown>
+                    [(ngModel)]="oEstudiante.Estudiante.Grado" [filter]="true"></p-dropdown>
             </div>
             <div class="div-table-row">
                 <div class="ui-inputgroup" style="text-align: center">
                     <span class="ui-inputgroup-addon" style="width: 10%!important">
                         <i class="fa fa-user" style="font-size: 20px;"></i>
                     </span>
-                    <input pInputText type="text" style="width: 90%!important" placeholder="Nombres" [(ngModel)]="concepto"
+                    <input pInputText type="text" style="width: 90%!important" placeholder="Nombres" [(ngModel)]="oEstudiante.Nombres"
                         required>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                     <span class="ui-inputgroup-addon" style="width: 10%!important">
                         <i class="fa fa-user" style="font-size: 20px;"></i>
                     </span>
-                    <input pInputText type="text" style="width: 90%!important" placeholder="Apellidos" [(ngModel)]="concepto"
+                    <input pInputText type="text" style="width: 90%!important" placeholder="Apellidos" [(ngModel)]="oEstudiante.Apellidos"
                         required>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                             <i class="fa fa-users" style="font-size: 20px;"></i>
                         </span>
                         <input pInputText type="numeric" style="width: 90%!important" placeholder="Número de hermanos"
-                            [(ngModel)]="concepto" required>
+                            [(ngModel)]="oEstudiante.Estudiante.NoHnos" required>
                     </div>
                 </div>
                 <div class="div-table-col5">
@@ -50,7 +50,7 @@
                             <i class="fa fa-map" style="font-size: 20px;"></i>
                         </span>
                         <input pInputText type="text" style="width: 90%!important" placeholder="Lugar de nacimiento"
-                            [(ngModel)]="concepto" required>
+                            [(ngModel)]="oEstudiante.LugarNacimiento" required>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
             <div class="div-table-row">
                 <div class="div-table-col45-100" style="border-spacing:0px!important">
                     <p-dropdown [style]="{'width':'100%','Height':'20px'}" [autoWidth]="false" [options]="tDocumentos"
-                        [(ngModel)]="selectedCity1" [filter]="true"></p-dropdown>
+                        [(ngModel)]="oEstudiante.Tdoc" [filter]="true"></p-dropdown>
                 </div>
                 <div class="div-table-col5">
                     &#160;
@@ -79,7 +79,7 @@
                             <i class="fa fa-id-card" style="font-size: 20px;"></i>
                         </span>
                         <input pInputText type="text" style="width: 90%!important" placeholder="Número de documento"
-                            [(ngModel)]="concepto" required>
+                            [(ngModel)]="oEstudiante.Ndoc" required>
                     </div>
                 </div>
             </div>
@@ -98,8 +98,15 @@
 
         <div class="GrupoConceptos">
             <div class="div-table-row">
-                <contacto  [oLista]="oListaEmail" (agregoContacto)="eventAgregoContacto($event)" [Tipo]="'Email'"></contacto>
+                <contacto [oLista]="oListaEmail" (agregoContacto)="eventAgregoContacto($event)" [Tipo]="'Email'"></contacto>
             </div>
+        </div>
+
+    </div>
+
+    <div class="div-table-row" style="text-align:center">
+        <div class="div-table-col100">
+            <button pButton (click)="guardar()" type="button" label="Guardar" icon="pi pi-check"></button>
         </div>
 
     </div>

@@ -31,18 +31,18 @@
         <p-scrollPanel #scroller [style]="{height: '100%'}">
             <div class="sidebar-scroll-content">
                 <div class="logo">
-                    <img src="assets/layout/images/logo.png" alt="" width="113">
+                    <!-- <img src="assets/layout/images/logo.png" alt="" width="113"> -->
                 </div>
                 <div class="profile">
                     <img src="assets/layout/images/profile.png" alt="" />
                     <a id="profile-button" href="#" (click)="toggleProfile($event)">
-                        <span class="username">Peggy Olson</span>
+                        <span class="username">user Test</span>
                         <i class="fa fa-fw fa-cog"></i>
                     </a>
                     <ul [@submenu]="profileActive ? 'visible' : 'hidden'">
-                        <li><a href="#"><i class="fa fa-fw fa-sliders"></i><span>Account</span></a></li>
-                        <li><a href="#"><i class="fa fa-fw fa-bell"></i><span>Notifications</span><span class="menu-badge">2</span></a></li>
-                        <li><a href="#"><i class="fa fa-fw fa-sign-out"></i><span>Logout</span></a></li>
+                        <!-- <li><a href="#"><i class="fa fa-fw fa-sliders"></i><span>Account</span></a></li>
+                        <li><a href="#"><i class="fa fa-fw fa-bell"></i><span>Notifications</span><span class="menu-badge">2</span></a></li> -->
+                        <li><a (click)="cerrarSesion()"><i class="fa fa-fw fa-sign-out"></i><span>Salir</span></a></li>
                     </ul>
                 </div>
                 <app-menu></app-menu>

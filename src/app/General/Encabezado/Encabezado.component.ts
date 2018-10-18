@@ -1,6 +1,7 @@
 import {Component, AfterViewInit, OnDestroy, ViewChild, Renderer2} from '@angular/core';
 import {trigger, state, style, transition, animate} from '@angular/animations';
 import {ScrollPanel} from 'primeng/primeng';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'Encabezado',
@@ -38,7 +39,7 @@ export class EncabezadoComponent implements AfterViewInit, OnDestroy {
 
     topMenuButtonClick: boolean;
 
-    constructor(public renderer: Renderer2) {}
+    constructor(public renderer: Renderer2, public router:Router) {}
 
     ngAfterViewInit() {
         setTimeout(() => {this.scrollerViewChild.moveBar(); }, 100);
@@ -125,5 +126,10 @@ export class EncabezadoComponent implements AfterViewInit, OnDestroy {
         if (this.documentClickListener) {
             this.documentClickListener();
         }
+    }
+
+    cerrarSesion(){
+        localStorage.removeItem("usuario");
+        this.router.navigate(['Login'])
     }
 }

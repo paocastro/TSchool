@@ -17,7 +17,7 @@ export class Persona{
     public EPS:string;
     public Tipo:string;
 
-    public listContacts = Array<Contacto>();
+    public listContacts : Array<Contacto>;
     public Estudiante:Estudiante ;
     public USUSistema:USUSistema ;
 
