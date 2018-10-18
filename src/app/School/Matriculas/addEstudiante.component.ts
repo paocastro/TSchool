@@ -6,6 +6,8 @@ import { Estudiante } from 'src/Clases/Entity/Personas/Estudiante.type';
 import { Persona } from 'src/Clases/Entity/Personas/Persona.type';
 import { PouchPerson } from 'src/Clases/Service/Pouch/PouchPerson.service';
 import { PersonaService } from 'src/Clases/Service/Personas/persona.service';
+import { Diario } from 'src/Clases/Entity/TRX/Diario.type';
+import { DiarioService } from 'src/Clases/Service/Trx/Diario.service';
 
 @Component({
   selector: 'addEstudiante',
@@ -84,13 +86,24 @@ export class addEstudianteComponent {
   guardar(){
     this.oEstudiante.IdColegio= this.idColegio
     this.oEstudiante.listContacts = new Array<Contacto>();
+    this.oEstudiante.Id="2018" + this.oEstudiante.Ndoc 
     this.recorrerListaContacto(this.oListaDirecciones)
     this.recorrerListaContacto(this.oListaEmail)
     this.recorrerListaContacto(this.oListaTelefonos)
     console.log(this.oEstudiante)
     this.oPersonServie.AddPersonUnitToCouch(this.idColegio,this.oEstudiante,this.oPouchPerson)
+    this.crearDiario()
   }
 
+  crearDiario(){
+    var oDiario= new Diario();
+    var oDiarioService= new DiarioService();
+    oDiario.IdColegio= this.idColegio
+    oDiario.Fecha = new Date();
+    oDiario.IdPersonaACT = localStorage.getItem("usuario")
+    oDiario.Dato1=this.oEstudiante.Id
+    oDiarioService.AddDiarioUnitToCouch(this.idColegio,oDiario,this.oPouchPerson)
+  }
 
   recorrerListaContacto(oLista:Array<Contacto>){
     oLista.forEach(x => 
