@@ -1,4 +1,6 @@
 import { Contacto } from "./Contacto.type";
+import { Estudiante } from "./Estudiante.type";
+import { USUSistema } from "./USUSistema.type";
 
 export class Persona{
 
@@ -16,5 +18,7 @@ export class Persona{
     public Tipo:string;
 
     public listContacts = Array<Contacto>();
+    public Estudiante:Estudiante ;
+    public USUSistema:USUSistema ;
 
 }

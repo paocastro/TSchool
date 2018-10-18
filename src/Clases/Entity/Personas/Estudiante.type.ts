@@ -1,6 +1,4 @@
-export class Estudiante{
-    public IdColegio:string;
-    public Id:string;
+export class Estudiante{    
     public IdPadre:string;
     public IdMadre:string;
     public IdAcudiente:string;
