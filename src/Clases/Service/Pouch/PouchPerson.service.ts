@@ -8,12 +8,13 @@ export class PouchPerson{
     private isInstantiated: boolean;
     private database: any;
     private listener: EventEmitter<any> = new EventEmitter();
-    public serverRemote:string = "http://macuna.tecfinanzas.com:5984/TSchool";
+    public serverRemote:string = "http://macuna.tecfinanzas.com:5984/tschool";
 
     public constructor() {
         if(!this.isInstantiated) {
             this.database = new PouchDB("TSchool");
             this.isInstantiated = true;
+            this.sync(this.serverRemote);
         }
     }
 
@@ -27,11 +28,12 @@ export class PouchPerson{
 
     public put(id: string, document: any) {
         document._id = id;
-        
+        console.log("Entro PUT")
         return this.get(id).then(result => {
             document._rev = result._rev;
             return this.database.put(document);
         }, error => {
+            console.log(error);
             if(error.status == "404") {
                 return this.database.put(document);
             } else {
