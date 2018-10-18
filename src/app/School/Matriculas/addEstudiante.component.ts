@@ -29,8 +29,9 @@ export class addEstudianteComponent {
     private router: Router,
     private activatedRoute: ActivatedRoute,private oPouchPerson:PouchPerson
   ) {
-    this.inicializar();
-
+    this.activatedRoute.params.subscribe(params => {
+      this.inicializar();
+    });
   }
 
   inicializar(){
@@ -93,6 +94,7 @@ export class addEstudianteComponent {
     console.log(this.oEstudiante)
     this.oPersonServie.AddPersonUnitToCouch(this.idColegio,this.oEstudiante,this.oPouchPerson)
     this.crearDiario()
+    this.router.navigate(["ADM/Tablero1"])
   }
 
   crearDiario(){
