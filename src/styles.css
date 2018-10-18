@@ -10,6 +10,11 @@
     font-family: Arial;
 }
 
+.div-table-principal{
+    width: 600px;
+    margin-left: 20%;
+}
+
 .div-table50 { 
     display: table;
     width: 50%;
@@ -395,7 +400,18 @@
 @media 
 only screen and (max-width: 656px),
 (max-device-width: 656px) {
-    
+    .firstDiv {
+        
+        top: 60%;
+        left: 50%; 
+        width:100%;
+       }
+
+     .div-table-principal{
+         width: 100%;
+         margin-left: 0%;
+     }
+     
 .div-table-col15-100 {
     float: left; /* fix for  buggy browsers */
     display: table-column;
@@ -500,4 +516,30 @@ only screen and (max-width: 656px),
     }
     
 
+}
+
+
+
+.GrupoConceptos{
+    border: 1px solid #494C54;
+    background:#F7F7F7;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    display: table;
+    width: 100%;
+    height: 100%;
+    font-family: Arial;
+}
+
+.firstDiv {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width:400px;
+   }
+.Encabezado{
+    text-align: center;
+    background: #494C54;
+    color: white;
 }

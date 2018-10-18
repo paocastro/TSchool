@@ -2,6 +2,7 @@ import {Component, Input, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import {MenuItem} from 'primeng/primeng';
 import { EncabezadoComponent } from './Encabezado/Encabezado.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,8 +19,8 @@ export class AppMenuComponent implements OnInit {
 
     ngOnInit() {
         this.model = [
-            {label: 'Home', icon: 'fa fa-fw fa-home', routerLink: ['/Tablero1']},
-            {label: 'Matricular', icon: 'fa fa-fw fa-plus', routerLink: ['/addEstudiante']},
+            {label: 'Home', icon: 'fa fa-fw fa-home', routerLink: 'ADM/Tablero1'},
+            {label: 'Matricular', icon: 'fa fa-fw fa-plus', routerLink: 'ADM/addEstudiante'},
         ];
     }
 }
@@ -78,7 +79,7 @@ export class AppSubMenuComponent {
 
     _parentActive: boolean;
 
-    constructor(public app: EncabezadoComponent) {}
+    constructor(public app: EncabezadoComponent,private router:Router) {}
 
     itemClick(event: Event, item: MenuItem, index: number) {
         if (item.disabled) {
@@ -102,8 +103,13 @@ export class AppSubMenuComponent {
         if (!item.items) {
             this.app.menuActiveMobile = false;
         }
+
+        this.redireccion(item.routerLink)
     }
 
+    redireccion(link){
+        this.router.navigate([link]);
+    }
     isActive(index: number): boolean {
         return this.activeIndex === index;
     }
