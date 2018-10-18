@@ -103,6 +103,9 @@ export class addEstudianteComponent {
     oDiario.IdPersonaACT = localStorage.getItem("usuario")
     oDiario.Dato1=this.oEstudiante.Id
     oDiarioService.AddDiarioUnitToCouch(this.idColegio,oDiario,this.oPouchPerson)
+    this.oEstudiante = new Persona();
+    this.oEstudiante.Estudiante= new Estudiante();
+    alert("Estudiante Guardado")
   }
 
   recorrerListaContacto(oLista:Array<Contacto>){

@@ -8,6 +8,7 @@ export class DiarioService{
         var idBD = idColegio +  "?Diario";
 
         data = await oPouchPerson.get(idBD);
+        console.log(data)
         if(data.Diarios !== undefined){
             oDataDiario = data.Diarios;
         }else{
