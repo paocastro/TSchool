@@ -6,10 +6,14 @@ export class DiarioService{
         var data;
         var oDataDiario:Array<Diario>;
         var idBD = idColegio +  "?Diario";
+        try{
+            data = await oPouchPerson.get(idBD);
+        }catch{
 
-        data = await oPouchPerson.get(idBD);
+        }
+        
         console.log(data)
-        if(data.Diarios !== undefined){
+        if(data !== undefined && data.Diarios !== undefined){
             oDataDiario = data.Diarios;
         }else{
             oDataDiario = Array<Diario>();
