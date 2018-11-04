@@ -87,7 +87,7 @@ export class addEstudianteComponent {
   guardar(){
     this.oEstudiante.IdColegio= this.idColegio
     this.oEstudiante.listContacts = new Array<Contacto>();
-    this.oEstudiante.Id="2018" + this.oEstudiante.Ndoc 
+    this.oEstudiante.IdPersona="2018" + this.oEstudiante.Ndoc 
     this.recorrerListaContacto(this.oListaDirecciones)
     this.recorrerListaContacto(this.oListaEmail)
     this.recorrerListaContacto(this.oListaTelefonos)
@@ -103,7 +103,7 @@ export class addEstudianteComponent {
     oDiario.IdColegio= this.idColegio
     oDiario.Fecha = new Date();
     oDiario.IdPersonaACT = localStorage.getItem("usuario")
-    oDiario.Dato1=this.oEstudiante.Id
+    oDiario.Dato1=this.oEstudiante.IdPersona;
     oDiarioService.AddDiarioUnitToCouch(this.idColegio,oDiario,this.oPouchPerson)
     this.oEstudiante = new Persona();
     this.oEstudiante.Estudiante= new Estudiante();
