@@ -6,7 +6,7 @@ import { Persona } from 'src/Clases/Entity/Personas/Persona.type';
 const serverSQL:string = "http://localhost:3000/";
 
 @Injectable()
-export class conectPostgre{
+export class conectSQL{
     constructor(private http: HttpClient){
         
     }

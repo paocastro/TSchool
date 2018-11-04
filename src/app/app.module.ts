@@ -22,12 +22,15 @@ import { AppMenuComponent, AppSubMenuComponent } from './General/app-menu.compon
 import { addEstudianteComponent } from './School/Matriculas/addEstudiante.component';
 import { DatePickerComponent } from './Controles/date-picker/date-picker.component';
 import { contactoComponent } from './Controles/Contacto/Contacto.component';
+import { SearchStudentComponent } from './Controles/search-student/search-student.component';
+import {AutoCompleteModule} from 'primeng/autocomplete';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     Login,AppMenuComponent,AppSubMenuComponent,EncabezadoComponent,Tablero1Component,
-    addEstudianteComponent,DatePickerComponent,contactoComponent
+    addEstudianteComponent,DatePickerComponent,contactoComponent, SearchStudentComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ import { contactoComponent } from './Controles/Contacto/Contacto.component';
     CardModule,
     AngularFontAwesomeModule,FormsModule,ButtonModule,
     ScrollPanelModule,BrowserAnimationsModule,
-    InputTextModule,DropdownModule,NgbModule,TableModule,HttpClientModule
+    InputTextModule,DropdownModule,NgbModule,TableModule,HttpClientModule,AutoCompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

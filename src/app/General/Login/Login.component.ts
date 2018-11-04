@@ -6,13 +6,13 @@ import { Persona } from 'src/Clases/Entity/Personas/Persona.type';
 import { PersonaService } from 'src/Clases/Service/Personas/persona.service';
 import { USUSistema } from 'src/Clases/Entity/Personas/USUSistema.type';
 import { LoginService } from 'src/Clases/Service/Login/Login.service';
-import { conectPostgre } from 'src/Clases/Service/PostgreSQL/Conect.service';
+import { conectSQL } from 'src/Clases/Service/PostgreSQL/Conect.service';
 
 @Component({
   selector: 'Login',
   templateUrl: './Login.component.html',
   styleUrls: ['./Login.component.css'],
-  providers: [PouchPerson, conectPostgre]
+  providers: [PouchPerson, conectSQL]
 })
 export class Login  {
   private idColegio = "LLS";
@@ -25,18 +25,15 @@ export class Login  {
 
   constructor( 
     private router: Router,
-    private activatedRoute: ActivatedRoute, private oPouchPerson:PouchPerson, private conectPostgre:conectPostgre
+    private activatedRoute: ActivatedRoute, private oPouchPerson:PouchPerson, private conectPostgre:conectSQL
     ) {
-    this.conectPostgre.getAPI("Personas").subscribe(resp =>{
-      console.log(resp);
-    })
   }
 
   ingresar(){
 
     if(this.user.trim() != "" && this.pass.trim() != ""){
-      this.oLoginService.Login(this.idColegio, this.user,this.oPouchPerson, this.pass).then(resp =>{
-        console.log(resp);
+      //this.oLoginService.Login(this.idColegio, this.user,this.oPouchPerson, this.pass).then(resp =>{
+      this.oLoginService.LoginSQL(this.idColegio, this.user,this.conectPostgre, this.pass).then(resp =>{
         if(resp){
           localStorage.setItem("usuario",this.user)
           this.router.navigate(['ADM/addEstudiante'])
