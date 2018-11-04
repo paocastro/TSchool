@@ -5,7 +5,7 @@ import { USUSistema } from "./USUSistema.type";
 export class Persona{
 
     public IdColegio:string;
-    public Id:string;
+    public IdPersona:string;
     public Tdoc:string; // 1: CC, 2: TI.
     public Ndoc:string;
     public Nombres:string;

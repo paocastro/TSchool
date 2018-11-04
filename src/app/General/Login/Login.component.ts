@@ -6,12 +6,13 @@ import { Persona } from 'src/Clases/Entity/Personas/Persona.type';
 import { PersonaService } from 'src/Clases/Service/Personas/persona.service';
 import { USUSistema } from 'src/Clases/Entity/Personas/USUSistema.type';
 import { LoginService } from 'src/Clases/Service/Login/Login.service';
+import { conectPostgre } from 'src/Clases/Service/PostgreSQL/Conect.service';
 
 @Component({
   selector: 'Login',
   templateUrl: './Login.component.html',
   styleUrls: ['./Login.component.css'],
-  providers: [PouchPerson]
+  providers: [PouchPerson, conectPostgre]
 })
 export class Login  {
   private idColegio = "LLS";
@@ -24,9 +25,11 @@ export class Login  {
 
   constructor( 
     private router: Router,
-    private activatedRoute: ActivatedRoute, private oPouchPerson:PouchPerson
+    private activatedRoute: ActivatedRoute, private oPouchPerson:PouchPerson, private conectPostgre:conectPostgre
     ) {
-    
+    this.conectPostgre.getAPI("Personas").subscribe(resp =>{
+      console.log(resp);
+    })
   }
 
   ingresar(){

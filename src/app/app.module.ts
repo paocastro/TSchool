@@ -13,6 +13,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {DropdownModule} from 'primeng/dropdown';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TableModule} from 'primeng/table';
+import { HttpClientModule } from '@angular/common/http';
 
 import { Login } from './General/Login/Login.component';
 import { EncabezadoComponent } from './General/Encabezado/Encabezado.component';
@@ -34,7 +35,7 @@ import { contactoComponent } from './Controles/Contacto/Contacto.component';
     CardModule,
     AngularFontAwesomeModule,FormsModule,ButtonModule,
     ScrollPanelModule,BrowserAnimationsModule,
-    InputTextModule,DropdownModule,NgbModule,TableModule
+    InputTextModule,DropdownModule,NgbModule,TableModule,HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
