@@ -3,6 +3,12 @@ import { PouchPerson } from "../Pouch/PouchPerson.service";
 import { conectSQL } from "../PostgreSQL/Conect.service";
 import { async } from "q";
 
+//GetEstudiantes
+//GetEstudiantesByName
+//GetEstudiantesByNdoc
+//getEstudiantesByIdPersona
+
+
 export class PersonaService{
 
     public AddPersonToCouch(idColegio:string, iPersonas:Array<Persona>, oPouchPerson:PouchPerson){
@@ -37,7 +43,7 @@ export class PersonaService{
         return oPerson;
     }
 
-    public async GetUsuarioSistema(idColegio:string,sNdoc:string,oService:conectSQL, ){
+    public async GetUsuarioSistema(idColegio:string,sNdoc:string,oService:conectSQL){
         var data;
         data = await oService.getAPI("PersonasByNdoc/" + idColegio + "/" + sNdoc).toPromise();
 
@@ -47,4 +53,14 @@ export class PersonaService{
             return null;
         }
     }
+
+    public async AddEstudiante(oPersona:Persona,oService:conectSQL){
+        var data;
+        data = await oService.postAPI("Personas/", oPersona);
+        console.log(data);
+    }
+
+
+
+
 }

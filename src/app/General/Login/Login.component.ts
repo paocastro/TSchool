@@ -8,6 +8,10 @@ import { USUSistema } from 'src/Clases/Entity/Personas/USUSistema.type';
 import { LoginService } from 'src/Clases/Service/Login/Login.service';
 import { conectSQL } from 'src/Clases/Service/PostgreSQL/Conect.service';
 
+
+
+
+
 @Component({
   selector: 'Login',
   templateUrl: './Login.component.html',
@@ -50,68 +54,18 @@ export class Login  {
   }
 
   Registrar(){
-
+    var data = require('src/Temp/Estudiantes.json');
+    
     var arrOperson = new Array<Persona>();
-
-    var oPerson:Persona = new Persona();
-
-    // oPerson.Apellidos = "Giron Mendieta";
-    // oPerson.EPS = "SANITAS";
-    // oPerson.Id = "1";
-    // oPerson.IdColegio = this.idColegio;
-    // oPerson.LugarNacimiento = "Villarrica";
-    // oPerson.Ndoc = "1019086390"
-    // oPerson.Tdoc = "2";
-    // oPerson.Tipo = "ADMIN";
-
-    oPerson = new Persona();
-    oPerson.Nombres = "Johan";
-    oPerson.Apellidos = "cárdenas";
-    oPerson.Ndoc = "1000160235";
-    oPerson.Tdoc = "1";
-    oPerson.USUSistema = new USUSistema();
-    oPerson.USUSistema.Clave = "0235";
-    arrOperson.push(oPerson);
-
-    oPerson = new Persona();
-    oPerson.Nombres = "Brahian";
-    oPerson.Apellidos = "Sanchez";
-    oPerson.Ndoc = "1007699573";
-    oPerson.Tdoc = "1";
-    oPerson.USUSistema = new USUSistema();
-    oPerson.USUSistema.Clave = "9573";
-    arrOperson.push(oPerson);
-
-    oPerson = new Persona();
-    oPerson.Nombres = "Valentina";
-    oPerson.Apellidos = "Ortiz";
-    oPerson.Ndoc = "1007011715";
-    oPerson.Tdoc = "2";
-    oPerson.USUSistema = new USUSistema();
-    oPerson.USUSistema.Clave = "1715";
-    arrOperson.push(oPerson);
-
-    oPerson = new Persona();
-    oPerson.Nombres = "Laura";
-    oPerson.Apellidos = "Marín";
-    oPerson.Ndoc = "1000019564";
-    oPerson.Tdoc = "1";
-    oPerson.USUSistema = new USUSistema();
-    oPerson.USUSistema.Clave = "9564";
-    arrOperson.push(oPerson);
-
-    oPerson = new Persona();
-    oPerson.Nombres = "Xiomara";
-    oPerson.Apellidos = "Jurado";
-    oPerson.Ndoc = "1022972311";
-    oPerson.Tdoc = "2";
-    oPerson.USUSistema = new USUSistema();
-    oPerson.USUSistema.Clave = "2311";
-    arrOperson.push(oPerson);
+    arrOperson = data.Personas;
+    console.log(arrOperson);
+    // arrOperson.forEach(persona => {
+    //   this.oPersonServie.AddEstudiante(persona, this.conectPostgre);
+    // })
+    this.oPersonServie.AddEstudiante(arrOperson[0], this.conectPostgre);
 
     
     
-    this.oPersonServie.AddPersonToCouch(this.idColegio, arrOperson, this.oPouchPerson);
   }
 }
 
