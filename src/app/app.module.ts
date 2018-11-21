@@ -19,6 +19,9 @@ import 'jquery';
 import 'moment';
 import 'fullcalendar';
 import { ScheduleModule } from 'primeng/primeng';
+import {CalendarModule} from 'primeng/calendar';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+
 
 import { Login } from './General/Login/Login.component';
 import { EncabezadoComponent } from './General/Encabezado/Encabezado.component';
@@ -45,7 +48,7 @@ import { eventosComponent } from './School/Eventos/Eventos.component';
     AngularFontAwesomeModule,FormsModule,ButtonModule,
     ScrollPanelModule,BrowserAnimationsModule,
     InputTextModule,DropdownModule,NgbModule,TableModule,HttpClientModule,AutoCompleteModule,
-    ScheduleModule
+    ScheduleModule,CalendarModule,InputTextareaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

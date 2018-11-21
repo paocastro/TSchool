@@ -114,7 +114,10 @@ export class AppSubMenuComponent {
     }
 
     redireccion(link){
-        this.router.navigate([link]);
+        if(link !== undefined && link.trim() !== ""){
+            this.router.navigate([link]);
+        }
+        
     }
     isActive(index: number): boolean {
         return this.activeIndex === index;

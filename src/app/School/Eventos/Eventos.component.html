@@ -1,1 +1,55 @@
-<p-schedule [events]="events"   ></p-schedule>
+<div *ngIf="events !== undefined" style="margin-bottom: 10px">
+    <p-schedule [events]="events" (onclick)="onSelect($event)" (onDayClick)="onSelect($event)" (onEventClick)="clickEnEvento($event)">
+
+    </p-schedule>
+
+</div>
+
+
+<ng-template #content>
+    <div class="div-table">
+        <div class="div-table-row" style="text-align: center;margin-bottom: 20px">
+            <h4>{{titulo}} {{eventoSeleccionado.titulo}}</h4>
+        </div>
+        <div class="div-table-row">
+            <div class="div-table-col30">
+                Titulo del evento
+            </div>
+            <div class="div-table-col70">
+                <input type="text" style="width: 100%" [(ngModel)]="eventoSeleccionado.titulo" pInputText>
+            </div>
+        </div>
+        <div class="div-table-row">
+            <div class="div-table-col30">
+                Ubicación
+            </div>
+            <div class="div-table-col70">
+                <input type="text" style="width: 100%" [(ngModel)]="eventoSeleccionado.ubicacion" pInputText>
+            </div>
+        </div>
+        <div class="div-table-row">
+            <div class="div-table-col30">
+                Fecha Inicio
+            </div>
+            <div class="div-table-col70" style="text-align: center">
+                <p-calendar [(ngModel)]="eventoSeleccionado.fechainicio" dateFormat="yy-mm-dd" [showIcon]="true"></p-calendar>
+            </div>
+        </div>
+        <div class="div-table-row">
+            <div class="div-table-col30">
+                Descripción
+            </div>
+            <div class="div-table-col70" style="text-align: center">
+                <textarea [(ngModel)]="eventoSeleccionado.descripcion"  rows="5" cols="30" pInputTextarea></textarea>
+            </div>
+        </div>
+        <div class="div-table-row">
+            <div class="div-table-col50-100">
+                <button pButton (click)="guardar()" type="button" label="Guardar" icon="pi pi-check"></button>
+            </div>
+            <div class="div-table-col50-100">
+                <button pButton (click)="cancelar()" type="button" label="Cancelar" icon="pi pi-times"></button>
+            </div>
+        </div>
+    </div>
+</ng-template>
