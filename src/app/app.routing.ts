@@ -4,6 +4,7 @@ import { Login } from './General/Login/Login.component';
 import { EncabezadoComponent } from './General/Encabezado/Encabezado.component';
 import { Tablero1Component } from './TablerosControl/Tablero1/Tablero1.component';
 import { addEstudianteComponent } from './School/Matriculas/addEstudiante.component';
+import { eventosComponent } from './School/Eventos/Eventos.component';
 
 
 const appRutas: Routes = [
@@ -13,6 +14,7 @@ const appRutas: Routes = [
         component: EncabezadoComponent, children: [
             { path: "Tablero1", component: Tablero1Component },
             { path: "addEstudiante", component: addEstudianteComponent },
+            { path: "Eventos", component: eventosComponent },
         ]
     }
 ]

@@ -14,6 +14,14 @@ import {DropdownModule} from 'primeng/dropdown';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TableModule} from 'primeng/table';
 import { HttpClientModule } from '@angular/common/http';
+import {AutoCompleteModule} from 'primeng/autocomplete';
+import 'jquery';
+import 'moment';
+import 'fullcalendar';
+import { ScheduleModule } from 'primeng/primeng';
+import {CalendarModule} from 'primeng/calendar';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+
 
 import { Login } from './General/Login/Login.component';
 import { EncabezadoComponent } from './General/Encabezado/Encabezado.component';
@@ -23,14 +31,15 @@ import { addEstudianteComponent } from './School/Matriculas/addEstudiante.compon
 import { DatePickerComponent } from './Controles/date-picker/date-picker.component';
 import { contactoComponent } from './Controles/Contacto/Contacto.component';
 import { SearchStudentComponent } from './Controles/search-student/search-student.component';
-import {AutoCompleteModule} from 'primeng/autocomplete';
+import { eventosComponent } from './School/Eventos/Eventos.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     Login,AppMenuComponent,AppSubMenuComponent,EncabezadoComponent,Tablero1Component,
-    addEstudianteComponent,DatePickerComponent,contactoComponent, SearchStudentComponent
+    addEstudianteComponent,DatePickerComponent,contactoComponent, SearchStudentComponent,
+    eventosComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +47,8 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
     CardModule,
     AngularFontAwesomeModule,FormsModule,ButtonModule,
     ScrollPanelModule,BrowserAnimationsModule,
-    InputTextModule,DropdownModule,NgbModule,TableModule,HttpClientModule,AutoCompleteModule
+    InputTextModule,DropdownModule,NgbModule,TableModule,HttpClientModule,AutoCompleteModule,
+    ScheduleModule,CalendarModule,InputTextareaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
