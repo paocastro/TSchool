@@ -4,30 +4,62 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Persona } from 'src/Clases/Entity/Personas/Persona.type';
 import 'rxjs/add/operator/map'
 
-const serverSQL:string = "http://localhost:3000/";
 
 @Injectable()
-export class conectSQL{
-    constructor(private http: HttpClient){
-        
-    }
+export class conectSQL {
 
-    getAPI(complement:string): Observable<any> {
-        return this.http.get(serverSQL + complement);
-    }
+  private iServidorPersonas: string = "http://localhost:5000/";
 
-    postAPI(complement:string, oData:any) {
-        console.log(oData);
-        const headers = new HttpHeaders()
-          .set('Authorization', 'my-auth-token')
-          .set('Content-Type', 'application/json');
 
-        this.http.post(serverSQL + complement, oData, {
-      headers: headers
-    })
-    .subscribe(data => {
-      console.log(data);
-    });
-    }
-    
+  constructor(private http: HttpClient,private httpClient: HttpClient) {
+
+  }
+
+
+  
+
+  // getAPI(complement: string): Observable<any> {
+  //   return this.http.get(serverSQL + complement);
+  // }
+
+  // postAPI(complement: string, oData: any) {
+  //   console.log(oData);
+  //   const headers = new HttpHeaders()
+  //     .set('Authorization', 'my-auth-token')
+  //     .set('Content-Type', 'application/json');
+
+  //   this.http.post(serverSQL + complement, oData, {
+  //     headers: headers
+  //   })
+  //     .subscribe(data => {
+  //       console.log(data);
+  //     });
+  // }
+
+
+  public HttpGetWithBodyPersonas(url:string, params:any){
+    return this.httpGetWithBody(url, this.iServidorPersonas, params);
+  }
+
+
+  /**
+   * Metodo GET, llega como parametro la URL, el servidor y los parametros a enviar
+   * @param urlGet URL del servicio a consumir
+   * @param iServidor Servidor a consumir
+   * @param parametros Parametros a enviar
+   */
+  private httpGetWithBody(urlGet: string, iServidor: string, parametros: any) {
+    const headers = new Headers();
+
+    headers.append('Content-Type', 'application/json');
+    //const options = new RequestOptions({headers: headers, body: {"correo": "params"}, params:myParams});
+
+    return this.httpClient.get(iServidor + urlGet,
+      {
+        params: parametros
+      }).map(res => {
+        return res;
+      });
+  }
+
 }

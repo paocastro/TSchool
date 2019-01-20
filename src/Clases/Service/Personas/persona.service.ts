@@ -45,7 +45,7 @@ export class PersonaService{
 
     public async GetUsuarioSistema(idColegio:string,sNdoc:string,oService:conectSQL){
         var data;
-        data = await oService.getAPI("PersonasByNdoc/" + idColegio + "/" + sNdoc).toPromise();
+        data = await oService.HttpGetWithBodyPersonas("PersonasByNdoc/" + idColegio + "/" + sNdoc, null).toPromise();
 
         if(data[0] !== undefined && data[0].j !== undefined){
             return data[0].j;    
@@ -56,7 +56,7 @@ export class PersonaService{
 
     public async AddEstudiante(oPersona:Persona,oService:conectSQL){
         var data;
-        data = await oService.postAPI("Personas/", oPersona);
+        data = await oService.HttpGetWithBodyPersonas("Personas/", oPersona);
         console.log(data);
     }
 
