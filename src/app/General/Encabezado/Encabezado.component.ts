@@ -31,6 +31,9 @@ export class EncabezadoComponent implements AfterViewInit, OnDestroy {
 
     public topMenuLeaving: boolean;
 
+    private user;
+    private idColegio="LLS";
+    private nombre="";
     @ViewChild('scroller') public scrollerViewChild: ScrollPanel;
 
     documentClickListener: Function;
@@ -39,7 +42,12 @@ export class EncabezadoComponent implements AfterViewInit, OnDestroy {
 
     topMenuButtonClick: boolean;
 
-    constructor(public renderer: Renderer2, public router:Router) {}
+    constructor(public renderer: Renderer2, public router:Router) {
+        this.user = JSON.parse(localStorage.getItem("usuario" + this.idColegio)) ;
+        this.nombre = this.user.Nombre
+    }
+
+    
 
     ngAfterViewInit() {
         setTimeout(() => {this.scrollerViewChild.moveBar(); }, 100);

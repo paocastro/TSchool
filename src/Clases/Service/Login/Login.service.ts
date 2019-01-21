@@ -26,10 +26,10 @@ export class LoginService {
             var data;
             var params = { nDoc: sNdoc, sClave: pass } // [FromQuery] string User
             data = await oService.HttpGetWithBodyPersonas("Personas/Login/Ingresar/LLS", params).toPromise();
-            if(data.Respuesta.Usuario){
-                return true;
+            if(data.Respuesta.Usuario !== undefined){
+                return data.Respuesta.Usuario;
             }else{
-                return false;
+                return undefined;
             }
             
 

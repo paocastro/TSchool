@@ -7,6 +7,7 @@ import { PersonaService } from 'src/Clases/Service/Personas/persona.service';
 import { USUSistema } from 'src/Clases/Entity/Personas/USUSistema.type';
 import { LoginService } from 'src/Clases/Service/Login/Login.service';
 import { conectSQL } from 'src/Clases/Service/PostgreSQL/Conect.service';
+import { PerfilesService } from 'src/Clases/Service/Personas/Perfil.service';
 
 
 
@@ -18,44 +19,52 @@ import { conectSQL } from 'src/Clases/Service/PostgreSQL/Conect.service';
   styleUrls: ['./Login.component.css'],
   providers: [PouchPerson, conectSQL]
 })
-export class Login  {
+export class Login {
   private idColegio = "LLS";
   user: string = "";
   pass: string = "";
+  usuario:any;
   logoEmpresa;
   public id_config_simulacion: string;
-  private oPersonServie:PersonaService = new PersonaService();
-  private oLoginService:LoginService = new LoginService();
-
-  constructor( 
+  private oPersonServie: PersonaService = new PersonaService();
+  private oLoginService: LoginService = new LoginService();
+  private oPerfilService: PerfilesService = new PerfilesService();
+  constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute, private oPouchPerson:PouchPerson, private conectPostgre:conectSQL
-    ) {
+    private activatedRoute: ActivatedRoute, private oPouchPerson: PouchPerson, private conectPostgre: conectSQL
+  ) {
   }
 
-  ingresar(){
+  ingresar() {
 
-    if(this.user.trim() != "" && this.pass.trim() != ""){
+    if (this.user.trim() != "" && this.pass.trim() != "") {
       //this.oLoginService.Login(this.idColegio, this.user,this.oPouchPerson, this.pass).then(resp =>{
-      this.oLoginService.LoginSQL(this.idColegio, this.user,this.conectPostgre, this.pass).then(resp =>{
-        if(resp){
-          localStorage.setItem("usuario",this.user)
-          this.router.navigate(['ADM/addEstudiante'])
-        }else{
-          alert("Informacion ingresada incorrecta");    
+      this.oLoginService.LoginSQL(this.idColegio, this.user, this.conectPostgre, this.pass).then(resp => {
+        if (resp !== undefined) {
+          console.log(resp)
+          this.oPerfilService.getMenu(this.idColegio, resp.Perfil, this.conectPostgre).then(menu => {
+            console.log(menu)
+            this.usuario= resp
+            this.usuario.Menu=menu;
+            localStorage.setItem("usuario" + this.idColegio, JSON.stringify(this.usuario).split('@').join(''))
+            this.router.navigate(['ADM/addEstudiante'])
+          })
+
+        } else {
+          alert("Informacion ingresada incorrecta");
         }
-      });      
-    }else{
+      });
+    } else {
       alert("Ingrese usuario y contraseña")
     }
 
-    
+
     //this.router.navigate(['ADM/Tablero1'])
   }
 
-  Registrar(){
+  Registrar() {
     var data = require('src/Temp/Estudiantes.json');
-    
+
     var arrOperson = new Array<Persona>();
     arrOperson = data.Personas;
     console.log(arrOperson);
@@ -64,8 +73,8 @@ export class Login  {
     // })
     this.oPersonServie.AddEstudiante(arrOperson[0], this.conectPostgre);
 
-    
-    
+
+
   }
 }
 

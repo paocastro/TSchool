@@ -36,7 +36,7 @@
                 <div class="profile">
                     <img src="assets/layout/images/profile.png" alt="" />
                     <a id="profile-button" href="#" (click)="toggleProfile($event)">
-                        <span class="username">user Test</span>
+                        <span class="username">{{nombre}}</span>
                         <i class="fa fa-fw fa-cog"></i>
                     </a>
                     <ul [@submenu]="profileActive ? 'visible' : 'hidden'">

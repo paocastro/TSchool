@@ -16,18 +16,22 @@ import { Router } from '@angular/router';
 export class AppMenuComponent implements OnInit {
 
     model: MenuItem[];
-
+    user;
+    idColegio="LLS";
     ngOnInit() {
-        this.model = [
-            // {label: 'Home', icon: 'fa fa-fw fa-home', routerLink: 'ADM/Tablero1'},
-            {label: 'Matricular', icon: 'fa fa-fw fa-plus', routerLink: 'ADM/addEstudiante'},
-            {label: 'Administración', icon: 'fa fa-fw fa-wrench' ,
-            items: [
+        this.user = JSON.parse(localStorage.getItem("usuario" + this.idColegio)) ;
+        console.log(this.user)
+        this.model = this.user.Menu.items
+        // this.model = Menu [
+        //     // {label: 'Home', icon: 'fa fa-fw fa-home', routerLink: 'ADM/Tablero1'},
+        //     {label: 'Matricular', icon: 'fa fa-fw fa-plus', routerLink: 'ADM/addEstudiante'},
+        //     {label: 'Administración', icon: 'fa fa-fw fa-wrench' ,
+        //     items: [
                 
-                {label: 'Eventos', icon: 'fa fa-fw fa-calendar', routerLink: 'ADM/Eventos'},
-            ]
-            },
-        ];
+        //         {label: 'Eventos', icon: 'fa fa-fw fa-calendar', routerLink: 'ADM/Eventos'},
+        //     ]
+        //     },
+        // ];
     }
 }
 
