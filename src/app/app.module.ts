@@ -3,24 +3,23 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
-import {CardModule} from 'primeng/card';
+import { CardModule } from 'primeng/card';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FormsModule } from '@angular/forms';
-import {ButtonModule} from 'primeng/button';
-import {ScrollPanelModule} from 'primeng/scrollpanel';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {InputTextModule} from 'primeng/inputtext';
-import {DropdownModule} from 'primeng/dropdown';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {TableModule} from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InputTextModule } from 'primeng/inputtext';
+import { DropdownModule } from 'primeng/dropdown';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TableModule } from 'primeng/table';
 import { HttpClientModule } from '@angular/common/http';
-import {AutoCompleteModule} from 'primeng/autocomplete';
-import 'jquery';
-import 'moment';
-import 'fullcalendar';
-import { ScheduleModule } from 'primeng/primeng';
-import {CalendarModule} from 'primeng/calendar';
-import {InputTextareaModule} from 'primeng/inputtextarea';
+import { AutoCompleteModule } from 'primeng/autocomplete';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { CalendarModule } from 'primeng/calendar';
+import {MatSnackBarModule} from '@angular/material/snack-bar'
+import {DataViewModule} from 'primeng/dataview';
+import {PanelModule} from 'primeng/panel';
 
 
 import { Login } from './General/Login/Login.component';
@@ -37,18 +36,18 @@ import { eventosComponent } from './School/Eventos/Eventos.component';
 @NgModule({
   declarations: [
     AppComponent,
-    Login,AppMenuComponent,AppSubMenuComponent,EncabezadoComponent,Tablero1Component,
-    addEstudianteComponent,DatePickerComponent,contactoComponent, SearchStudentComponent,
+    Login, AppMenuComponent, AppSubMenuComponent, EncabezadoComponent, Tablero1Component,
+    addEstudianteComponent, DatePickerComponent, contactoComponent, SearchStudentComponent,
     eventosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CardModule,
-    AngularFontAwesomeModule,FormsModule,ButtonModule,
-    ScrollPanelModule,BrowserAnimationsModule,
-    InputTextModule,DropdownModule,NgbModule,TableModule,HttpClientModule,AutoCompleteModule,
-    ScheduleModule,CalendarModule,InputTextareaModule
+    AngularFontAwesomeModule, FormsModule, ButtonModule,
+    ScrollPanelModule, BrowserAnimationsModule,
+    InputTextModule, DropdownModule, NgbModule, TableModule, HttpClientModule, AutoCompleteModule,
+    InputTextareaModule, CalendarModule,MatSnackBarModule,DataViewModule,PanelModule
   ],
   providers: [],
   bootstrap: [AppComponent]

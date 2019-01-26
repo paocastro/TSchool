@@ -40,12 +40,13 @@ export class Login {
     if (this.user.trim() != "" && this.pass.trim() != "") {
       //this.oLoginService.Login(this.idColegio, this.user,this.oPouchPerson, this.pass).then(resp =>{
       this.oLoginService.LoginSQL(this.idColegio, this.user, this.conectPostgre, this.pass).then(resp => {
-        if (resp !== undefined) {
-          console.log(resp)
+        if (resp !== undefined && resp != false) {
+    
           this.oPerfilService.getMenu(this.idColegio, resp.Perfil, this.conectPostgre).then(menu => {
-            console.log(menu)
+    
             this.usuario= resp
             this.usuario.Menu=menu;
+            localStorage.setItem("empresa" , this.idColegio)
             localStorage.setItem("usuario" + this.idColegio, JSON.stringify(this.usuario).split('@').join(''))
             this.router.navigate(['ADM/addEstudiante'])
           })

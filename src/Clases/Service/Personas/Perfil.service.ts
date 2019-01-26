@@ -7,7 +7,7 @@ export class PerfilesService{
             var data;
             var params = { sPerfil: nomPerfil } // [FromQuery] string User
             data = await oService.HttpGetWithBodyPersonas("Perfilacion/GetMenu/"+ idColegio, params).toPromise();
-            console.log(data)
+           
             if(data.MENU!== undefined){
                 return data.MENU;
             }else{

@@ -8,8 +8,8 @@ import 'rxjs/add/operator/map'
 @Injectable()
 export class conectSQL {
 
-  private iServidorPersonas: string = "https://localhost:5001/";
-
+  private iServidorPersonas: string = "http://localhost:5004/";
+  private iServidorAdmPage:string= "http://localhost:5002/";
 
   constructor(private http: HttpClient,private httpClient: HttpClient) {
 
@@ -41,6 +41,18 @@ export class conectSQL {
     return this.httpGetWithBody(url, this.iServidorPersonas, params);
   }
 
+  public HttpGetWithBodyAdmPage(url:string, params:any){
+    return this.httpGetWithBody(url, this.iServidorAdmPage, params);
+  }
+  //Post
+  postServiceResponseHttpCallService(urlGet:string, params,iServidor){
+    return this.http.post(iServidor + urlGet, params).map(res => {
+        return res;
+    });
+}
+  postServiceResponseHttpAdmPage(urlGet:string, params){
+    return this.postServiceResponseHttpCallService(urlGet, params, this.iServidorAdmPage);
+}
 
   /**
    * Metodo GET, llega como parametro la URL, el servidor y los parametros a enviar

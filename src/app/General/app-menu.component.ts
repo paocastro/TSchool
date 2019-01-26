@@ -1,6 +1,6 @@
-import {Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import {MenuItem} from 'primeng/primeng';
+import { MenuItem } from 'primeng/primeng';
 import { EncabezadoComponent } from './Encabezado/Encabezado.component';
 import { Router } from '@angular/router';
 
@@ -17,22 +17,41 @@ export class AppMenuComponent implements OnInit {
 
     model: MenuItem[];
     user;
-    idColegio="LLS";
+    idColegio = "LLS";
     ngOnInit() {
-        this.user = JSON.parse(localStorage.getItem("usuario" + this.idColegio)) ;
-        console.log(this.user)
+        this.user = JSON.parse(localStorage.getItem("usuario" + this.idColegio));
+
         this.model = this.user.Menu.items
+        this.model.forEach(element => {
+            this.volverArrayItems(element)
+        });
+
+
         // this.model = Menu [
         //     // {label: 'Home', icon: 'fa fa-fw fa-home', routerLink: 'ADM/Tablero1'},
         //     {label: 'Matricular', icon: 'fa fa-fw fa-plus', routerLink: 'ADM/addEstudiante'},
         //     {label: 'Administración', icon: 'fa fa-fw fa-wrench' ,
         //     items: [
-                
+
         //         {label: 'Eventos', icon: 'fa fa-fw fa-calendar', routerLink: 'ADM/Eventos'},
         //     ]
         //     },
         // ];
     }
+
+    volverArrayItems(items) {
+        if (items !== undefined && items.items !== undefined) {
+
+            if (items.items.length === undefined) {
+                items.items = new Array(items.items)
+            }
+            items.items.forEach(element => {
+                this.volverArrayItems(element)
+            });
+
+        }
+    }
+
 }
 
 @Component({
@@ -89,9 +108,9 @@ export class AppSubMenuComponent {
 
     _parentActive: boolean;
 
-    constructor(public app: EncabezadoComponent,private router:Router) {}
+    constructor(public app: EncabezadoComponent, private router: Router) { }
 
-    itemClick(event: Event, item: MenuItem, index: number) {
+    itemClick(event: Event, item: MenuItem, index: number) {
         if (item.disabled) {
             event.preventDefault();
             return;
@@ -101,12 +120,12 @@ export class AppSubMenuComponent {
 
         // execute command
         if (item.command) {
-            item.command({originalEvent: event, item: item});
+            item.command({ originalEvent: event, item: item });
         }
 
         // prevent hash change
         if (item.items || (!item.url && !item.routerLink)) {
-            setTimeout(() => {this.app.scrollerViewChild.moveBar(); }, 400);
+            setTimeout(() => { this.app.scrollerViewChild.moveBar(); }, 400);
             event.preventDefault();
         }
 
@@ -117,11 +136,11 @@ export class AppSubMenuComponent {
         this.redireccion(item.routerLink)
     }
 
-    redireccion(link){
-        if(link !== undefined && link.trim() !== ""){
+    redireccion(link) {
+        if (link !== undefined && link.trim() !== "") {
             this.router.navigate([link]);
         }
-        
+
     }
     isActive(index: number): boolean {
         return this.activeIndex === index;

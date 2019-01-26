@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { conectSQL } from "src/Clases/Service/PostgreSQL/Conect.service";
 import * as moment from 'moment';
 import { NgbModalRef, NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 
 @Component({
@@ -18,43 +19,58 @@ export class eventosComponent {
     events: any[];
     oDataEventos;
     eventoSeleccionado;
-
-    idColegio="LLS";
+    tiposEvento;
+    Estados
+    idColegio ;
 
     @ViewChild('content') content;
     modalReference: NgbModalRef;
     titulo;
+    user
     private oEventosServicee: EventosService = new EventosService();
     constructor(
-        private router: Router,
+        private router: Router,private snackBar:MatSnackBar,
         private activatedRoute: ActivatedRoute, private oPouchPerson: PouchPerson,
         private conectPostgre: conectSQL, private modalService: NgbModal
     ) {
+        this.idColegio=localStorage.getItem("empresa") ;
+        console.log(this.idColegio)
+        this.user = JSON.parse(localStorage.getItem("usuario" + this.idColegio)) ;
+        this.tiposEvento = [
+            { descripcion: 'Seleccione tipo de evento', code: null},
+            { descripcion: 'Evento página web', code: 'EVE' },
+            { descripcion: 'Noticia página web', code: 'NOTP' },
+        ];
+
+        this.Estados = [
+            { descripcion: 'Activo', code: '1' },
+            { descripcion: 'InActivo', code: '0' },
+        ];
     }
 
     ngOnInit() {
 
         var eventos: Array<any> = new Array<any>();
 
-        this.oEventosServicee.getEventosbyTypo(this.idColegio, "1", this.conectPostgre).then(resp => {
-            this.oDataEventos = resp
-            this.oDataEventos.forEach(element => {
-                eventos.push({ 'defId': element.idevento, 'title': element.titulo, 'backgroundColor': 'yellow', 'start': moment(element.fechainicio).format('YYYY-MM-DD') })
-            });
-            this.events = eventos;
+        this.oEventosServicee.getEventosbyTypo(this.idColegio, this.conectPostgre).then(resp => {
+            if(resp!== null && resp.Respuesta.EVENTOS){
+                if(resp.Respuesta.EVENTOS.length === undefined ) resp.Respuesta.EVENTOS= new Array(resp.Respuesta.EVENTOS)
+                this.oDataEventos = resp.Respuesta.EVENTOS
+                console.log(this.oDataEventos)
+            }
+            
+
         });
 
     }
-    clickEnEvento(ievento) {
-        this.eventoSeleccionado = this.oDataEventos.find(x => x.idevento == ievento.calEvent.event.def.extendedProps.defId)
 
-        this.titulo = "Modificar "
-        this.eventoSeleccionado.fechainicio = new Date(this.eventoSeleccionado.fechainicio)
-        this.openPopUp(this.content)
-        console.log(this.eventoSeleccionado)
-    }
 
     openPopUp(content) {
+        if (this.eventoSeleccionado === undefined) {
+            this.eventoSeleccionado = {}
+            this.titulo = "Adicionar Evento";
+            this.eventoSeleccionado.IdEvento =-1
+        }
         this.modalReference = this.modalService.open(content);
         this.modalReference.result.then((result) => {
             //this.closeResult = `Closed with: ${result}`;
@@ -63,12 +79,30 @@ export class eventosComponent {
         });
     }
 
-    cancelar(){
+    cancelar() {
         this.modalReference.close()
-        this.eventoSeleccionado=undefined
+        this.eventoSeleccionado = undefined
     }
 
-    guardar(){
-        this.oEventosServicee.updEvento(this.idColegio,this.eventoSeleccionado, this.eventoSeleccionado.idevento,this.conectPostgre)
+    guardarEvento(){
+        this.eventoSeleccionado.Tipo =this.eventoSeleccionado.Tipo.code 
+        if(this.eventoSeleccionado.Estado === undefined){
+            this.eventoSeleccionado.Estado ="1"
+        }else{
+            this.eventoSeleccionado.Estado =this.eventoSeleccionado.Estado.code
+        }
+       this.oEventosServicee.updEvento(this.idColegio,this.eventoSeleccionado,this.conectPostgre).then(x =>{
+           console.log(x)
+           this.modalReference.close();
+           if(x==null){
+               this.snackBar.open("Se presentaron errores al almacenar el evento")
+           }else{
+            this.snackBar.open("Evento almacenado correctamente")
+           }
+           
+       })
+    
+        console.log(this.eventoSeleccionado)
     }
+
 }

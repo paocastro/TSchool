@@ -1,15 +1,102 @@
-<div *ngIf="events !== undefined" style="margin-bottom: 10px">
-    <p-schedule [events]="events" (onclick)="onSelect($event)" (onDayClick)="onSelect($event)" (onEventClick)="clickEnEvento($event)">
+<div class="div-table">
 
-    </p-schedule>
+    <div class="div-table-principal" style="text-align: center">
+        <div class="Encabezado!important" style="width: 100%!important">
+            <div class="ui-card-title" style="width: 100%!important;text-align: center;background: #494C54;color: white">
+                <fa name="calendar"></fa> Administración eventos y noticias
+            </div>
+        </div>
+    </div>
+    <div class="div-table-row" style="text-align: center">
+        <p-button icon="pi pi-plus" label="Adicionar" (click)="openPopUp(content)"></p-button>
+    </div>
+    <div class="div-table-row" *ngIf="oDataEventos!== undefined">
+        <p-dataView [value]="oDataEventos" [layout]="'grid'">
+            <p-header>
+                <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+            </p-header>
+            <p-footer>
+                <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+            </p-footer>
 
+            <ng-template let-evento pTemplate="listItem">
+                <div class="ui-g" style="padding: 2em;border-bottom: 1px solid #d9d9d9">
+                    <div class="ui-g-12 ui-md-3" style="text-align:center">
+                        <img src="assets/layout/images/profileM.png">
+
+                    </div>
+                    <div class="ui-g-12 ui-md-8 car-details">
+                        <div class="ui-g">
+                            <div class="ui-g-2 ui-sm-6">Titulo: </div>
+                            <div class="ui-g-10 ui-sm-6"><b>{{evento.Titulo}}</b></div>
+
+                            <div class="ui-g-2 ui-sm-6">Ubicacion: </div>
+                            <div class="ui-g-10 ui-sm-6"><b>{{evento.Ubicacion}}</b></div>
+
+                            <div class="ui-g-2 ui-sm-6">Estado: </div>
+                            <div class="ui-g-10 ui-sm-6"><b>
+                                    <span *ngIf="evento.Estado==1"> Activo</span>
+                                    <span *ngIf="evento.Estado==0"> InActivo</span>
+                                </b>
+                            </div>
+
+                            <div class="ui-g-2 ui-sm-6">Inicio: </div>
+                            <div class="ui-g-10 ui-sm-6"><b>{{evento.FechaInicio}}</b></div>
+
+                            <div class="ui-g-2 ui-sm-6">Fin: </div>
+                            <div class="ui-g-10 ui-sm-6"><b>{{evento.FechaFin}}</b></div>
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-1 search-icon">
+                        <button pButton type="button" icon="pi pi-search" (click)="selectCar($event, car)"></button>
+                    </div>
+                </div>
+            </ng-template>
+
+            <ng-template let-car pTemplate="gridItem">
+                <div style="padding:.5em" class="ui-g-12 ui-md-4">
+                    <p-panel [header]="car.Titulo" [style]="{'text-align':'center'}">
+                        <img src="assets/layout/images/profileM.png" width="60">
+                        <div class="car-detail">
+                            {{car.Ubicacion}}
+                        </div>
+                        <div class="car-detail">
+                                {{car.FechaInicio}}
+                            </div>
+                        <div class="car-detail">
+                            <span *ngIf="car.Estado==1" style="color:green"> Activo</span>
+                            <span *ngIf="car.Estado==0" style="color:red"> InActivo</span>
+                        </div>
+                        <hr class="ui-widget-content" style="border-top:0">
+                        <button pButton type="button" icon="pi pi-search" (click)="selectCar($event, car)" style="margin-top:0"></button>
+                    </p-panel>
+                </div>
+            </ng-template>
+        </p-dataView>
+    </div>
 </div>
-
-
 <ng-template #content>
     <div class="div-table">
         <div class="div-table-row" style="text-align: center;margin-bottom: 20px">
             <h4>{{titulo}} {{eventoSeleccionado.titulo}}</h4>
+        </div>
+        <div class="div-table-row">
+            <div class="div-table-col30">
+                Tipo de Evento
+            </div>
+            <div class="div-table-col70" style="border-spacing:0px!important">
+                <p-dropdown [options]="tiposEvento" autoWidth="false" [style]="{'width':'100%'}" [(ngModel)]="eventoSeleccionado.Tipo"
+                    optionLabel="descripcion"></p-dropdown>
+            </div>
+        </div>
+        <div class="div-table-row">
+            <div class="div-table-col30">
+                Estado
+            </div>
+            <div class="div-table-col70" style="border-spacing:0px!important">
+                <p-dropdown [options]="Estados" [(ngModel)]="eventoSeleccionado.Estado" autoWidth="false" [style]="{'width':'100%'}"
+                    optionLabel="descripcion"></p-dropdown>
+            </div>
         </div>
         <div class="div-table-row">
             <div class="div-table-col30">
@@ -32,7 +119,17 @@
                 Fecha Inicio
             </div>
             <div class="div-table-col70" style="text-align: center">
-                <p-calendar [(ngModel)]="eventoSeleccionado.fechainicio" dateFormat="yy-mm-dd" [showIcon]="true"></p-calendar>
+                <p-calendar [(ngModel)]="eventoSeleccionado.fechainicio" [showTime]="true" hourFormat="12" [style]="{'width':'100%'}"
+                    dateFormat="yy-mm-dd" [showIcon]="true"></p-calendar>
+            </div>
+        </div>
+        <div class="div-table-row">
+            <div class="div-table-col30">
+                Fecha Fin
+            </div>
+            <div class="div-table-col70" style="text-align: center">
+                <p-calendar [(ngModel)]="eventoSeleccionado.fechaFin" [showTime]="true" hourFormat="12" [style]="{'width':'100%'}"
+                    dateFormat="yy-mm-dd" [showIcon]="true"></p-calendar>
             </div>
         </div>
         <div class="div-table-row">
@@ -40,14 +137,14 @@
                 Descripción
             </div>
             <div class="div-table-col70" style="text-align: center">
-                <textarea [(ngModel)]="eventoSeleccionado.descripcion"  rows="5" cols="30" pInputTextarea></textarea>
+                <textarea [(ngModel)]="eventoSeleccionado.Decripcion" rows="5" cols="30" pInputTextarea></textarea>
             </div>
         </div>
         <div class="div-table-row">
-            <div class="div-table-col50-100">
-                <button pButton (click)="guardar()" type="button" label="Guardar" icon="pi pi-check"></button>
+            <div class="div-table-col50-100" style="text-align: center">
+                <button pButton (click)="guardarEvento()" type="button" label="Guardar" icon="pi pi-check"></button>
             </div>
-            <div class="div-table-col50-100">
+            <div class="div-table-col50-100" style="text-align: center">
                 <button pButton (click)="cancelar()" type="button" label="Cancelar" icon="pi pi-times"></button>
             </div>
         </div>
